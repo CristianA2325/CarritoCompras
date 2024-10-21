@@ -14,25 +14,24 @@
         <jsp:include page="components/Navegacion.jsp"/>
 
         <div class="container-fluid mt-3">
-            <h5> Registrar Cuenta </h5>
-            <hr />
-
             <div class="row">
-                <div class="col-sm-9">
-                    <div class="card">
+                <div class="col-sm-12">
+                    <div class="card form-registro">
                         <div class="card-body">
-                            <from>
+                            <h5> Registrar Cuenta </h5>
+                            <hr />
+                            <form action="ClienteControlador" method="post">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="mb-3">
                                             <label>Nombres: <span class="obligatorio">(*)</span></label>
-                                            <input type="text" class="from-control" required="" name="nombres" placeholder="Ingrese su nombre" />
+                                            <input type="text" class="form-control" required="" name="nombres" placeholder="Ingrese su nombre" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="mb-3">
                                             <label>Apellidos: <span class="obligatorio">(*)</span></label>
-                                            <input type="text" class="from-control" required="" name="apellidos" placeholder="Ingrese sus apellidos" />
+                                            <input type="text" class="form-control" required="" name="apellidos" placeholder="Ingrese sus apellidos" />
                                         </div>
                                     </div>
                                 </div>
@@ -40,11 +39,29 @@
                                     <div class="col-sm-12">
                                         <div class="mb-3">
                                             <label>Telefono: </label>
-                                            <input type="text" class="from-control" required="" name="nombres" placeholder="Ingrese su nombre" />
+                                            <input type="tel" class="form-control" name="telefono" placeholder="Ingrese su telefono" />
                                         </div>
                                     </div>
                                 </div>
-                            </from>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="mb-3">
+                                            <label>Correo Electronico: <span class="obligatorio">(*)</span></label>
+                                            <input type="email" class="form-control" required="" name="correo" placeholder="Ingrese su correo electronico" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="mb-3">
+                                            <label>Contraseña: <span class="obligatorio">(*)</span></label>
+                                            <input type="password" class="form-control" required="" name="password" placeholder="Ingrese su contraseña" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="accion" value="guardar" />
+                                <button type="submit" class="btn btn-primary">Registrarse</button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,137 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 21 oct. 2024, 15:44:18
+    Author     : CRISTIAN
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    height: 100%;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img_login/login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.inicio-sesion {
+    color: white;
+    margin-bottom: 30px;
+}
+.user {
+    position: relative;
+    margin-bottom: 40px;
+}
+.user input {
+    width: 100%;
+    padding: 15px;
+    padding-left: 40px;
+    background-color: rgba(225, 225, 225, 0.167);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+.pass {
+    position: relative;
+    margin-bottom: 10px;
+}
+.pass input {
+    width: 100%;
+    padding: 15px;
+    padding-left: 40px;
+    background-color: rgba(225, 225, 225, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+.user .userimg {
+    display: flex;
+    margin-left: 88%;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+.pass .passimg-password {
+    display: flex;
+    margin-left: 88%;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(244, 230, 230, 0.655);
+    border: none;
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.links a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.links a hover {
+    color: #ddd;
+}
+.icon-redes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.icon-redes button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    padding: 10px;
+    background-color: rgba(244, 230, 230, 0.655);
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.icon-redes .facebook-btn {
+    color: white;
+    background-color: #1a50c5;
+}
+.icon-redes .google-btn {
+    color: white;
+    background-color: #ef4b4b;
+}
