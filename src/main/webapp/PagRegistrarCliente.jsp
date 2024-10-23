@@ -8,11 +8,12 @@
         <title>Registrarse</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="img/css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <jsp:include page="components/Navegacion.jsp"/>
-
+        <jsp:include page="components/Mensaje.jsp" />
         <div class="container-fluid mt-3">
             <div class="row">
                 <div class="col-sm-12">
@@ -25,13 +26,13 @@
                                     <div class="col-sm-6">
                                         <div class="mb-3">
                                             <label>Nombres: <span class="obligatorio">(*)</span></label>
-                                            <input type="text" class="form-control" required="" name="nombres" placeholder="Ingrese su nombre" />
+                                            <input value="${cliente.nombres}" type="text" class="form-control" required="" name="nombres" placeholder="Ingrese su nombre" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="mb-3">
                                             <label>Apellidos: <span class="obligatorio">(*)</span></label>
-                                            <input type="text" class="form-control" required="" name="apellidos" placeholder="Ingrese sus apellidos" />
+                                            <input value="${cliente.apellidos}" type="text" class="form-control" required="" name="apellidos" placeholder="Ingrese sus apellidos" />
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +40,7 @@
                                     <div class="col-sm-12">
                                         <div class="mb-3">
                                             <label>Telefono: </label>
-                                            <input type="tel" class="form-control" name="telefono" placeholder="Ingrese su telefono" />
+                                            <input value="${cliente.telefono}" type="tel" class="form-control" name="telefono" placeholder="Ingrese su telefono" />
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +48,7 @@
                                     <div class="col-sm-12">
                                         <div class="mb-3">
                                             <label>Correo Electronico: <span class="obligatorio">(*)</span></label>
-                                            <input type="email" class="form-control" required="" name="correo" placeholder="Ingrese su correo electronico" />
+                                            <input value="${cliente.correo}" type="email" class="form-control" required="" name="correo" placeholder="Ingrese su correo electronico" />
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +56,7 @@
                                     <div class="col-sm-12">
                                         <div class="mb-3">
                                             <label>Contraseña: <span class="obligatorio">(*)</span></label>
-                                            <input type="password" class="form-control" required="" name="password" placeholder="Ingrese su contraseña" />
+                                            <input value="${cliente.password}" type="password" class="form-control" required="" name="password" placeholder="Ingrese su contraseña" />
                                         </div>
                                     </div>
                                 </div>
