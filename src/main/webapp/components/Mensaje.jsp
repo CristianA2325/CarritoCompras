@@ -26,6 +26,5 @@
             });
         </script>
 </c:if>
-
 <c:remove var="success" scope="session" />
 <c:remove var="error" scope="session" />
