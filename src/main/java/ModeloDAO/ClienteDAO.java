@@ -48,4 +48,37 @@ public class ClienteDAO {
         
         return result;
     }
+    
+    public boolean ExisteCorreo(String correo){
+        
+        try {
+            cn = Conexion.getConnection();
+            String sql = "select count(1) from Cliente where correo = ?";
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, correo);
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                return (rs.getInt(1) > 0);
+            }
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }finally{
+            try {
+                if (cn != null) {
+                    cn.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception ex) {
+            }
+        }
+        
+        return false;
+    }
 }

@@ -30,7 +30,7 @@ public class ClienteControlador extends HttpServlet {
      */
     private final String pagNuevo = "PagRegistrarCliente.jsp";
     private ClienteDAO cliDao = new ClienteDAO();
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -46,34 +46,39 @@ public class ClienteControlador extends HttpServlet {
                 throw new AssertionError();
         }
     }
-    
+
     protected void Nuevo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("cliente", new Cliente());
         request.getRequestDispatcher(pagNuevo).forward(request, response);
     }
+
     protected void Guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         Cliente obj = new Cliente();
         obj.setNombres(request.getParameter("nombres"));
         obj.setApellidos(request.getParameter("apellidos"));
         obj.setTelefono(request.getParameter("telefono"));
         obj.setCorreo(request.getParameter("correo"));
         obj.setPassword(request.getParameter("password"));
-        
-        int result = cliDao.Guardar(obj);
-        
-        if (result > 0) {
-            request.getSession().setAttribute("success", "Cuenta registrada");
-            response.sendRedirect("ClienteControlador?accion=nuevo");
-            return;
+
+        if (cliDao.ExisteCorreo(obj.getCorreo().trim()) == false) {
+            int result = cliDao.Guardar(obj);
+
+            if (result > 0) {
+                request.getSession().setAttribute("success", "Cuenta registrada");
+                response.sendRedirect("ClienteControlador?accion=nuevo");
+                return;
+            } else {
+                request.getSession().setAttribute("error", "Cuenta no registrada");
+            }
         }else{
-            request.getSession().setAttribute("error", "Cuenta no registrada");
+            request.getSession().setAttribute("error", "El correo "+obj.getCorreo()+" "+" ya se encuentra registrado");
         }
-        
+
         request.setAttribute("cliente", obj);
         request.getRequestDispatcher(pagNuevo).forward(request, response);
     }
