@@ -25,7 +25,7 @@
                     <i class="fas fa-user-plus"></i> Registrarse
                 </a>
                 &nbsp;&nbsp;
-                <a href="Login.jsp" class="btn btn-dark">
+                <a href="AuthControlador?accion=login" class="btn btn-dark">
                     <i class="fas fa-user-lock"></i> Login
                 </a>
             </form>
