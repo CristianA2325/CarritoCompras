@@ -11,6 +11,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     background-color: red;
     color: white;
 }
+.modal-header {
+    background-color: red;
+    color: white;
+}
 .obligatorio {
     color: red;
 }

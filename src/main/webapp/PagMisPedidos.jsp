@@ -25,29 +25,71 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th># Pedido</th>
-                                        <th>Fecha</th>
-                                        <th>Total (S/)</th>
-                                        <th>Estado</th>
-                                        <th>Detalle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items="${pedidos}" var="item">
+                                    <thead>
                                         <tr>
-                                            <td>${item.idPedido}</td>
-                                            <td>${item.fecha}</td>
-                                            <td>${item.total}</td>
-                                            <td>${item.estado}</td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-sm">Ver</a>
-                                            </td>
+                                            <th># Pedido</th>
+                                            <th>Fecha</th>
+                                            <th>Total (S/)</th>
+                                            <th>Estado</th>
+                                            <th>Detalle</th>
                                         </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${pedidos}" var="item">
+                                            <tr>
+                                                <td>${item.idPedido}</td>
+                                                <td>${item.fecha}</td>
+                                                <td>${item.total}</td>
+                                                <td>${item.estado}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle_${item.idPedido}">
+                                                        Ver
+                                                    </button>
+                                                    <div class="modal fade" id="modalDetalle_${item.idPedido}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5">::: Pedido #${item.idPedido}</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <table class="table table-bordered table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Imagen</th>
+                                                                                <th>Producto</th>
+                                                                                <th>Precio (S/)</th>
+                                                                                <th>Cantidad</th>
+                                                                                <th>Importe (S/)</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <c:forEach items="${item.detalles}" var="detalle">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <img src="img/img/productos/${detalle.producto.imagen}" width="50px" height="60px" alt="${detalle.producto.nombre}"/>
+                                                                                    </td>
+                                                                                    <td>${detalle.producto.nombre}</td>
+                                                                                    <td>${detalle.producto.precio}</td>
+                                                                                    <td>${detalle.cantidad}</td>
+                                                                                    <td>${detalle.Importe()}</td>
+                                                                                    
+                                                                                </tr>
+                                                                            </c:forEach>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>   
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
