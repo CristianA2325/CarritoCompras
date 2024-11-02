@@ -17,9 +17,17 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="CarritoControlador?accion=listar">
-                        <i class="fa fa-shopping-cart"></i> (<span class="fw-bold">${sessionScope.carrito != null? sessionScope.carrito.size(): 0}</span>) Carrito
+                        <i class="fa fa-shopping-cart"></i>
+                        (<span class="fw-bold">${sessionScope.carrito != null? sessionScope.carrito.size(): 0}</span>) Carrito
                     </a>
                 </li>
+                <c:if test="${sessionScope.usuario != null}">
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="PedidoControlador?accion=mis_pedidos">
+                        <i class="fa fa-receipt"></i> Mis Pedidos
+                    </a>
+                </li>
+                </c:if>
             </ul>
             <form class="d-flex">
                 <c:if test="${sessionScope.usuario == null}">
@@ -32,7 +40,7 @@
                 </a>
                 </c:if>
                 <c:if test="${sessionScope.usuario != null}">
-                    <span class="btn btn-darke">${sessionScope.usuario.nombresCompletos()}</span>
+                    <span class="btn btn-dark">${sessionScope.usuario.nombresCompletos()}</span>
                     &nbsp;
                     <a href="AuthControlador?accion=logout" class="btn btn-dark">
                         <i class="fa fa-sign-out-alt"></i> Cerrar Sesión
